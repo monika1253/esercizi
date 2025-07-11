@@ -1,2 +1,2 @@
-# esercizi-
+# esercizi
 ## Hello GIT
