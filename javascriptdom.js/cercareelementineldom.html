@@ -2,7 +2,8 @@
 Considerando la seguente pagina HTML:
 -Cerca tutti gli elementi con classe "paragrafo";
 -Cerca l' elemento con id "elemento-3";
--Cerca tutti gli elementi h2 della pagina-->
+-Cerca tutti gli elementi h2 della pagina
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Document-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,10 +26,17 @@ Considerando la seguente pagina HTML:
     <script>
       const paragraphs = document.getElementsByClassName("paragrafo");
       console.log(paragraphs);
-      const li = document.querySelector("#elemento-3");
-      console.log(li);
-      const h2 = document.querySelectorAll("h2");
-      console.log(h2);
+      const elementId3 = document.querySelector("#elemento-3");
+      console.log(elementId3);
+      const allTitlesH2 = document.querySelectorAll("h2");
+      console.log(allTitlesH2); //ritorna una node list
+
+      allTitlesH2.forEach((h2) => {
+        h2.style.backgroundColor = "red";
+      });
     </script>
   </body>
 </html>
+
+<!--anziche inserirlo nel body, si puo creare il file script.js e inserire li le modifiche 
+e mettere nella head: <script src="script.js* defer></script>-->
