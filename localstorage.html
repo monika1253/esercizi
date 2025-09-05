@@ -48,6 +48,50 @@ Lo scopo di questo task è di salvare tutti i dati di un form nel local storage.
     </div>
     <button class="btn">Salva</button>
     <p class="printedform"></p>
-    <script></script>
+    <script>
+      //prendo gli elementi del DOM
+      const emailInput = document.querySelector(".email");
+      const firstnameInput = document.querySelector(".firstname");
+      const lastnameInput = document.querySelector(".lastname");
+      const saveButton = document.querySelector(".btn");
+      const titleSpan = document.querySelector(".title-name");
+      const printedForm = document.querySelector(".printedform");
+
+      //funzione che salva i dati nel localStorage
+      function salvaDatiNelLocalStorage() {
+        const datiUtente = {
+          email: emailInput.value,
+          firstname: firstnameInput.value,
+          lastname: lastnameInput.value,
+        };
+        //salvo l'oggetto nel localStorage (che converto in stringa)
+        localStorage.setItem("formData", JSON.stringify(datiUtente));
+      }
+      //funzione che carica i dati dal localStorage e li mostra
+      function caricaDatiDaLocalStorage() {
+        const datiSalvati = localStorage.getItem("formData");
+        //se esistono dati salvati riempie i campi del form
+        if (datiSalvati) {
+          const datiUtente = JSON.parse(datiSalvati);
+          emailInput.value = datiUtente.email;
+          firstnameInput.value = datiUtente.firstname;
+          lastnameInput.value = datiUtente.lastname;
+
+          //aggiorna lo span con il nome
+          title.span.textContent = datiUtente.firstname;
+          //mostra i dati anche sotto il form
+          printedForm.textContent = `Email: ${datiUtente.email}, Nome: ${datiUtente.firstname}, Cognome: ${datiUtente.lastname}`;
+        }
+      }
+
+      //salvo i dati e aggiorno il titolo al click
+      saveButton.addEventListener("click", () => {
+        salvaDatiNelLocalStorage();
+        titleSpan.textContent = firstnameInput.value;
+        printedForm.textContent = `Email: ${emailInput.value}, Nome: ${firstnameInput.value}, Cognome: ${lastnameInput.value}`;
+      });
+      //carica i dati salvati al caricamento della pagina
+      window.addEventListener("DOMContentLoaded", caricaDatiDaLocalStorage);
+    </script>
   </body>
 </html>

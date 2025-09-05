@@ -2,29 +2,7 @@
 
 Crea uno script che:
 -Al click del bottone inserisca la modalità dark
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      .theme {
-        background-color: black;
-        color: white;
-      }
-    </style>
-
-  </head>
-  <body>
-    <h1>Dark Mode</h1>
-    <div>
-      <button class="btn">Dark Mode</button>
-    </div>
-    <script></script>
-  </body>
-</html>-->
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Document/querySelector-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +24,7 @@ Crea uno script che:
     </div>
     <script>
       const button = document.querySelector(".btn"); //seleziona il bottone
-      const body = document.body; //seleziona il body
+      const body = document.querySelector("body"); //seleziona il body
 
       button.addEventListener("click", () => {
         body.classList.toggle("theme"); // aggiunge o rimuove la classe theme
