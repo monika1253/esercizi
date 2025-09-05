@@ -2,7 +2,8 @@
 Lo scopo di questo task è di salvare tutti i dati di un form nel local storage. 
 -Fai in modo che nello span venga inserito il testo che si è inserito nell'input nome 
 -Fai in modo che questi dati si salvino nel local storage 
--Controlla che al reload il nome nel titolo non scompaia-->
+-Controlla che al reload il nome nel titolo non scompaia
+ https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -78,7 +79,7 @@ Lo scopo di questo task è di salvare tutti i dati di un form nel local storage.
           lastnameInput.value = datiUtente.lastname;
 
           //aggiorna lo span con il nome
-          title.span.textContent = datiUtente.firstname;
+          titleSpan.textContent = datiUtente.firstname;
           //mostra i dati anche sotto il form
           printedForm.textContent = `Email: ${datiUtente.email}, Nome: ${datiUtente.firstname}, Cognome: ${datiUtente.lastname}`;
         }
@@ -95,3 +96,30 @@ Lo scopo di questo task è di salvare tutti i dati di un form nel local storage.
     </script>
   </body>
 </html>
+
+<!--soluzioone:
+function setName(username){
+  const nameContainer = documentquerySelector(".title-name");
+  nameContainer.innerHTML = username;
+}
+
+const btnEl = documentquerySelector(".btn");
+
+btnEl.addEventListener("click", () => {
+const emailEl = documentquerySelector(".email");
+const firstnameEl = documentquerySelector(".firstname");
+const lastnameEl = documentquerySelector(".lastname");
+
+const emailValue = emailEl.value;
+const firstnameValue = firstnameEl.value;
+const lastnameValue = lastnameEl.value;
+
+localStorage.setItem("email", emailValue);
+localStorage.setItem("lastname", lastnameValue);
+localStorage.setItem("firstname", firstnameValue);
+
+setName(firstnameValue);
+});
+const savedName = localStorage.getItem("firstname");
+setName(savedName);
+-->
