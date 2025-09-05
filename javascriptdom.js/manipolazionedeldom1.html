@@ -2,31 +2,17 @@
 
 Crea la tua To-Do List.
 Crea una funzione che ti permetterà di:
-Creare una lista aggiungendo il task desiderato mediante il bottone Aggiungi.
-Creare un checkbox per ogni task aggiunto.
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
+-Creare una lista aggiungendo il task desiderato mediante il bottone Aggiungi.
+-Creare un checkbox per ogni task aggiunto.
+https://developer.mozilla.org/en-US/docs/Web/JavaScript-->
 
-  <body>
-    <div>
-      <h1>To-do List</h1>
-      <input type="text" placeholder="..." />
-      <button onclick="addProduct()">Aggiungi</button>
-      <ul></ul>
-    </div>
-    <script src="./index.js"></script>
-</body>-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="./script.js" defer></script>
   </head>
 
   <body>
@@ -36,6 +22,21 @@ Creare un checkbox per ogni task aggiunto.
       <button onclick="addProduct()">Aggiungi</button>
       <ul id="taskList"></ul>
     </div>
-    <script src="./index.js"></script>
   </body>
 </html>
+
+<!--soluzione:
+const addProduct = () => {
+  const ul = document.querySelector("ul");
+  const input = document.querySelector("input");
+
+  const li = document.createElement("li");
+  const checkbox = document.createElement("input");
+
+  li.innerHTML = input.value
+  checkbox.setAttribute("type","checkbox");
+
+  ul.appendChild(li);
+  li.appendChild(checkbox);
+}
+-->

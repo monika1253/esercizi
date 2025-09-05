@@ -3,7 +3,10 @@
 Implementare il codice necessario per:
 -Recuperare il valore di ciascun campo di input e creare un oggetto person contenente le proprietà: 
 firstName, lastName e age.
--Recuperare l'elemento forme aggiungere l'attributo data-person contenente l'oggetto person in formato json.-->
+-Recuperare l'elemento forme aggiungere l'attributo data-person contenente l'oggetto person in formato json.
+https://www.w3schools.com/jsref/met_document_getelementbyid.asp
+https://www.w3schools.com/jsref/met_document_queryselector.asp
+https://www.w3schools.com/jsref/met_element_setattribute.asp-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,3 +53,18 @@ firstName, lastName e age.
     </script>
   </body>
 </html>
+
+<!--soluzione:
+  const firstname = document.querySelector("#firstName");
+  const lastname = document.querySelector("#lastName");
+  const age = document.querySelector("#age");
+
+  const person = {
+        firstName: firstname.value,
+        lastName: lastname.value,
+        age: age.value,
+      };
+  console.log(person);
+
+  const form = document.querySelector("form");
+  form.setAttribute("data-person", JSON.stringify(person));-->
